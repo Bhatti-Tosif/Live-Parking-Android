@@ -1,9 +1,7 @@
 package com.example.tegb_demo_app.baseClass
 
-import android.graphics.drawable.DrawableContainer
-import android.icu.text.CaseMap.Title
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.TextView
@@ -35,5 +33,9 @@ abstract class BaseActivity(@LayoutRes private val layoutRes: Int): AppCompatAct
 
     fun getImageButton(): ImageButton {
         return imageButtonBack
+    }
+
+    protected fun launchActivity(newActivity: Class<AppCompatActivity>) {
+        startActivity(Intent(this, newActivity))
     }
 }

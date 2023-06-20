@@ -85,12 +85,15 @@
         app:boxCornerRadiusTopStart="@dimen/_10dp"
         app:boxStrokeColor="@color/tagBWhite"
         app:boxStrokeWidth="@dimen/_2dp"
+        android:isScrollContainer="false"
         app:layout_constraintEnd_toEndOf="@id/right_guide"
         app:layout_constraintStart_toStartOf="@+id/left_guide"
         app:layout_constraintTop_toBottomOf="@id/tv_email_id">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_enter_email"
+            android:maxLines="1"
+            android:scrollHorizontally="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -125,6 +128,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/et_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 

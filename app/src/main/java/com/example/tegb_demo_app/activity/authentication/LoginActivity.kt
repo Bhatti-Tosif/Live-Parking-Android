@@ -3,8 +3,9 @@ package com.example.tegb_demo_app.activity.authentication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.tegb_demo_app.R
+import android.widget.Toast
 import com.example.tegb_demo_app.databinding.ActivityLoginBinding
+import com.example.tegb_demo_app.model.request.LoginRequestModel
 import com.example.tegb_demo_app.viewModel.AuthenticationViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -20,12 +21,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         viewModel = AuthenticationViewModel()
         binding.btnLogin.setOnClickListener(this)
 
+        viewModel.loginSuccess.observe(this) {
+            Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun onClick(v: View?) {
         when (v?.id)  {
             binding.btnLogin.id -> {
-                //viewModel.loginUser()
+                val userRequest = LoginRequestModel(binding.etEnterEmail.text.toString(), binding.etPassword.text.toString(), "business")
+                viewModel.loginUser(userRequest)
             }
         }
     }

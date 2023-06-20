@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.tegb_demo_app.model.request.LoginRequestModel
+import com.example.tegb_demo_app.model.request.SignUpRequestModel
 import com.example.tegb_demo_app.model.response.BaseResponseModel
 import com.example.tegb_demo_app.model.response.LoginResponse
 import com.example.tegb_demo_app.networkLayer.repository.AuthRepository
@@ -15,6 +16,8 @@ class AuthenticationViewModel: ViewModel() {
 
     val loginSuccess = MutableLiveData<LoginResponse?>()
     val loginFail = MutableLiveData<String?>()
+    val userCreated = MutableLiveData<LoginResponse?>()
+    val createuserFail = MutableLiveData<String>()
     fun loginUser(requestModel: LoginRequestModel) {
 
         AuthRepository.loginUser(requestModel).enqueue(object : Callback<BaseResponseModel<LoginResponse>> {
@@ -23,8 +26,10 @@ class AuthenticationViewModel: ViewModel() {
                 response: Response<BaseResponseModel<LoginResponse>>
             ) {
                 if (response.isSuccessful) {
+                    Log.d("API", response.body()?.data.toString())
                     loginSuccess.value = response.body()?.data
                 } else {
+                    Log.d("API", response.body()?.error.toString())
                     loginFail.value = response.body()?.error
                 }
             }
@@ -32,6 +37,28 @@ class AuthenticationViewModel: ViewModel() {
             override fun onFailure(call: Call<BaseResponseModel<LoginResponse>>, t: Throwable) {
                 Log.d("API", "Error in API")
             }
+        })
+    }
+
+    fun createUser(signUpRequestModel: SignUpRequestModel) {
+
+        AuthRepository.createUser(signUpRequestModel).enqueue(object : Callback<BaseResponseModel<LoginResponse>> {
+            override fun onResponse(
+                call: Call<BaseResponseModel<LoginResponse>>,
+                response: Response<BaseResponseModel<LoginResponse>>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
+                    Log.d("API", response.body()?.data.toString())
+                    userCreated.value = response.body()?.data
+                } else {
+                    Log.d("API", "Error in Response ${response.errorBody()}")
+                }
+            }
+
+            override fun onFailure(call: Call<BaseResponseModel<LoginResponse>>, t: Throwable) {
+                Log.d("API", "Error: in API Calling ${call.request().body()}")
+            }
+
         })
     }
 }
