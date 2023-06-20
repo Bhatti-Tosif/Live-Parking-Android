@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/deepAqua"
+    tools:context=".activity.authentication.LoginActivity">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16dp" />
+
+    <ImageView
+        android:id="@+id/iv_logo_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_white"
+        android:layout_marginTop="@dimen/_40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_personal"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_40dp"
+        android:backgroundTint="@color/selected_btn_color"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/txt_personal"
+        android:textAllCaps="false"
+        android:textColor="@color/tagBWhite"
+        app:cornerRadius="@dimen/_10dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_business"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_business"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:backgroundTint="@color/deepAqua"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/txt_business"
+        android:textAllCaps="false"
+        android:textColor="@color/tagBWhite"
+        app:cornerRadius="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_personal"
+        app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
+
+    <TextView
+        android:id="@+id/tv_firs_name"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_first_name"
+        android:layout_marginEnd="@dimen/_10dp"
+        app:layout_constraintEnd_toStartOf="@id/tv_last_name"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/btn_business" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_first_name"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+        app:boxCornerRadiusBottomStart="@dimen/_10dp"
+        app:boxCornerRadiusTopEnd="@dimen/_10dp"
+        app:boxCornerRadiusTopStart="@dimen/_10dp"
+        app:boxStrokeColor="@color/tagBWhite"
+        app:boxStrokeWidth="@dimen/_2dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_last_name"
+        app:layout_constraintStart_toStartOf="@+id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_enter_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_last_name"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_last_name"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toEndOf="@+id/tv_firs_name"
+        app:layout_constraintTop_toBottomOf="@+id/btn_business" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_last_name"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+        app:boxCornerRadiusBottomStart="@dimen/_10dp"
+        app:boxCornerRadiusTopEnd="@dimen/_10dp"
+        app:boxCornerRadiusTopStart="@dimen/_10dp"
+        app:boxStrokeColor="@color/tagBWhite"
+        app:boxStrokeWidth="@dimen/_2dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toEndOf="@id/txt_first_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_enter_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_email_id"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_email_id"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/txt_first_name" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_email"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+        app:boxCornerRadiusBottomStart="@dimen/_10dp"
+        app:boxCornerRadiusTopEnd="@dimen/_10dp"
+        app:boxCornerRadiusTopStart="@dimen/_10dp"
+        app:boxStrokeColor="@color/tagBWhite"
+        app:boxStrokeWidth="@dimen/_2dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@+id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_email_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_enter_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_mobile_number"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/tv_mobile_number"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_mobile_number"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+        app:boxCornerRadiusBottomStart="@dimen/_10dp"
+        app:boxCornerRadiusTopEnd="@dimen/_10dp"
+        app:boxCornerRadiusTopStart="@dimen/_10dp"
+        app:boxStrokeColor="@color/tagBWhite"
+        app:boxStrokeWidth="@dimen/_2dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@+id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_mobile_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_enter_mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/tv_password"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_password"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/txt_mobile_number" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_password"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10dp"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+        app:boxCornerRadiusBottomStart="@dimen/_10dp"
+        app:boxCornerRadiusTopEnd="@dimen/_10dp"
+        app:boxCornerRadiusTopStart="@dimen/_10dp"
+        app:boxStrokeColor="@color/white"
+        app:boxStrokeWidth="@dimen/_2dp"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@+id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_password"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40dp"
+        android:text="@string/btn_login_with_email"
+        app:layout_constraintEnd_toStartOf="@+id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        style="@style/TextFieldHeadingText"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_termsAndCondition"
+        app:layout_constraintEnd_toStartOf="@+id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_apple"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40dp"
+        android:text="@string/txt_continue_with_apple"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_google"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_google"
+        android:textColor="@color/googleRedColor"
+        android:layout_marginEnd="@dimen/_10dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_faceBook"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_faceBook"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20dp"
+        android:text="@string/txt_facebook"
+        android:textColor="@color/faceBookColor"
+        app:layout_constraintStart_toEndOf="@+id/btn_google"
+        app:layout_constraintEnd_toStartOf="@+id/right_guide"
+        app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

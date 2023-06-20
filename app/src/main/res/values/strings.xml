@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">TegB_Demo_App</string>
+    <string name="txt_face_id_icon">Face ID icon</string>
+    <string name="btn_login_with_email">Login With Email</string>
+    <string name="btn_create_an_account">Create an Account</string>
+    <string name="btn_continue_as_guest">Continue as Guest</string>
+    <string name="txt_business">Business</string>
+    <string name="txt_personal">Personal</string>
+    <string name="txt_email_id">Email Id</string>
+    <string name="txt_password">Password</string>
+    <string name="txt_forgot_password">Forgot Password?</string>
+    <string name="txt_or">Or</string>
+    <string name="txt_continue_with_apple">Continue with Apple</string>
+    <string name="txt_google">Google</string>
+    <string name="txt_facebook">faceBook</string>
+    <string name="txt_first_name">First Name</string>
+    <string name="txt_last_name">Last Name</string>
+    <string name="tv_mobile_number">Mobile Number</string>
+    <string name="txt_termsAndCondition"> By clicking create account you agree to RunParking Terms of Uses and Privacy Policy</string>
 </resources>
