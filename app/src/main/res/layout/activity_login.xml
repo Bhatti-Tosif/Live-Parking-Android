@@ -108,9 +108,11 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_enter_email"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Email Address"
                     android:background="@drawable/edit_text_white_boarder"
                     android:maxLines="1"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/edit_text_boarder_color" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,7 +145,8 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_password"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Password"
                     android:background="@drawable/edit_text_white_boarder"
                     android:inputType="textPassword"
                     android:textColor="@color/edit_text_boarder_color" />

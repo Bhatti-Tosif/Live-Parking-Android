@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tegb_demo_app.adapter.PromoCodeAdapter
 import com.example.tegb_demo_app.databinding.FragmentPromocodeBinding
 import com.example.tegb_demo_app.model.response.PromoCodeResponseModel
-import com.example.tegb_demo_app.utils.AppConstant
 import com.example.tegb_demo_app.viewModel.PromoCodeViewModel
 
 class PromoCodeFragment : Fragment() {
@@ -40,8 +38,6 @@ class PromoCodeFragment : Fragment() {
             promoCodeAdapter.submitList(promoCodeList)
             promoCodeAdapter.notifyDataSetChanged()
         }
-
-        Log.d("Auth", "${AppConstant.authKey}")
         getPromoCode()
 
         return binding.root

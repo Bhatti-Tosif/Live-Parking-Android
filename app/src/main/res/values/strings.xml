@@ -30,4 +30,6 @@
     <string name="tv_tegb_demo_app_title">TegB Demo App</string>
     <string name="title_customer_login">Customer Login</string>
     <string name="title_customer_signup">Customer Sign-Up</string>
+    <string name="btn_logout">LogOut</string>
+    <string name="txt_logo">logo</string>
 </resources>

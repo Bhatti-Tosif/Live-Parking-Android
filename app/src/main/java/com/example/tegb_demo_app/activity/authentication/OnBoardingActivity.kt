@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.tegb_demo_app.activity.dashBoard.DashBoardMainActivity
 import com.example.tegb_demo_app.databinding.ActivityOnBoardingBinding
+import com.example.tegb_demo_app.utils.sharedPrefference.prefs
 
 class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -16,6 +18,12 @@ class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnLogin.setOnClickListener(this)
         binding.btnSignUp.setOnClickListener(this)
+
+        if (prefs.isUserLogin) {
+            val intent = Intent(this, DashBoardMainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onClick(v: View?) {

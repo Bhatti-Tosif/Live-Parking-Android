@@ -8,11 +8,13 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_0dp"
+        android:id="@+id/ib_right_side"
         app:layout_constraintTop_toTopOf="@id/tv_title"
         app:layout_constraintBottom_toBottomOf="@id/tv_title"
         android:background="@drawable/back_button"
         android:layout_marginStart="@dimen/_10dp"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/btn_logout" />
 
     <TextView
         android:layout_width="wrap_content"

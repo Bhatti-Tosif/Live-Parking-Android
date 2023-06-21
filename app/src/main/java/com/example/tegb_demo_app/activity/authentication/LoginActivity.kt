@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.example.tegb_demo_app.R
 import com.example.tegb_demo_app.activity.dashBoard.DashBoardMainActivity
-import com.example.tegb_demo_app.baseClass.BaseActivity
 import com.example.tegb_demo_app.databinding.ActivityLoginBinding
 import com.example.tegb_demo_app.model.request.LoginRequestModel
+import com.example.tegb_demo_app.utils.sharedPrefference.prefs
 import com.example.tegb_demo_app.viewModel.AuthenticationViewModel
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -25,10 +23,15 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
         viewModel = AuthenticationViewModel()
         binding.btnLogin.setOnClickListener(this)
+        binding.toolBar.ibRightSide.setOnClickListener(this)
 
         viewModel.loginSuccess.observe(this) {
+            prefs.isUserLogin = true
+            prefs.userAuthKey = it?.authToken
+            prefs.refreshToken = it?.refreshToken
             Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, DashBoardMainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
         }
 
@@ -53,6 +56,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     "business"
                 )
                 viewModel.loginUser(userRequest)
+            }
+            binding.toolBar.ibRightSide.id -> {
+                finish()
             }
         }
     }

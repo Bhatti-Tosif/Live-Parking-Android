@@ -27,6 +27,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         binding.btnSignUp.setOnClickListener(this)
+        binding.toolBar.ibRightSide.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -34,6 +35,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnSignUp.id -> {
                 val signUpRequest = SignUpRequestModel(binding.etEnterFirstName.text.toString(), binding.etEnterLastName.text.toString(), binding.etEnterEmail.text.toString(), binding.etEnterMobileNumber.text.toString(), binding.etPassword.text.toString())
                 viewModel.createUser(signUpRequest)
+            }
+            binding.toolBar.ibRightSide.id -> {
+                finish()
             }
         }
     }

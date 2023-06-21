@@ -12,11 +12,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TegB_Demo_App"
+        android:theme="@style/StatusBarTheme"
         tools:targetApi="31"
         android:name=".utils.sharedPrefference.App">
         <activity
             android:name=".activity.dashBoard.DashBoardMainActivity"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".activity.authentication.SignUpActivity"

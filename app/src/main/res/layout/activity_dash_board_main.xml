@@ -4,7 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ligh_green_gray"
     tools:context=".activity.dashBoard.DashBoardMainActivity">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolBar"
+        layout="@layout/top_common_nav_bar"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_logOut"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:backgroundTint="@color/deepAqua"
+        android:text="@string/btn_logout"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolBar"
+        app:layout_constraintBottom_toBottomOf="@id/toolBar"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="@dimen/_0dp"
@@ -12,6 +32,7 @@
         android:id="@+id/bottomNav_bar"
         app:menu="@menu/dashboard_menu_item"
         android:background="@color/tagBWhite"
+        app:itemIconTint="@color/selected_bottom_navigation_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -25,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:navGraph="@navigation/dashboard_bottom_navigation"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar"
         app:layout_constraintBottom_toTopOf="@+id/bottomNav_bar"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

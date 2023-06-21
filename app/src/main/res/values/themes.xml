@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources >
     <!-- Base application theme. -->
     <style name="Base.Theme.TegB_Demo_App" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
@@ -57,4 +57,9 @@
         <item name="font">@font/poppins_semi_bold</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="StatusBarTheme" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/deepAqua</item>
+    </style>
+
 </resources>

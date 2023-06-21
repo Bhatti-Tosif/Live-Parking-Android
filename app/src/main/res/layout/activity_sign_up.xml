@@ -39,7 +39,8 @@
         android:layout_marginTop="@dimen/_20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+        app:layout_constraintTop_toBottomOf="@+id/toolBar"
+        android:contentDescription="@string/txt_logo" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_personal"
@@ -101,7 +102,11 @@
             android:background="@drawable/edit_text_white_boarder"
             android:textColor="@color/edit_text_boarder_color"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:maxLines="1"
+            android:nextFocusForward="@id/et_enter_last_name"
+            android:imeOptions="actionNext"
+            android:inputType="textPersonName"
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -134,8 +139,10 @@
             android:id="@+id/et_enter_last_name"
             android:background="@drawable/edit_text_white_boarder"
             android:textColor="@color/edit_text_boarder_color"
+            android:maxLines="1"
+            android:inputType="textPersonName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -167,8 +174,10 @@
             android:id="@+id/et_enter_email"
             android:background="@drawable/edit_text_white_boarder"
             android:textColor="@color/edit_text_boarder_color"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -200,8 +209,10 @@
             android:id="@+id/et_enter_mobile_number"
             android:background="@drawable/edit_text_white_boarder"
             android:textColor="@color/edit_text_boarder_color"
+            android:maxLines="1"
+            android:inputType="phone"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -233,7 +244,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
             android:background="@drawable/edit_text_white_boarder"
             android:textColor="@color/edit_text_boarder_color"
             android:id="@+id/et_password"
