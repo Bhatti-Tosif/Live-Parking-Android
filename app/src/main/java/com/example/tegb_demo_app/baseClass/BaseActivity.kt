@@ -1,41 +1,52 @@
 package com.example.tegb_demo_app.baseClass
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.TextView
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tegb_demo_app.R
-import com.example.tegb_demo_app.databinding.ActivityBaseBinding
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import com.google.android.material.snackbar.Snackbar
 
-abstract class BaseActivity(@LayoutRes private val layoutRes: Int): AppCompatActivity() {
+abstract class BaseActivity<Binding: ViewDataBinding, ViewModel: BaseViewModel>: AppCompatActivity() {
 
-    private lateinit var binding: ActivityBaseBinding
-    private lateinit var imageButtonBack: ImageButton
-    private lateinit var textViewTitle: TextView
-    private lateinit var activityContainer: FrameLayout
+    lateinit var binding: Binding
+    lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(layoutRes)
-        binding = ActivityBaseBinding.inflate(layoutInflater)
-        activityContainer = binding.layoutContainer
-        imageButtonBack = activityContainer.findViewById(R.id.image_back_button)
-        textViewTitle = activityContainer.findViewById(R.id.text_screen_title)
+        binding = DataBindingUtil.setContentView(this, getResId())
+        setViewModel().also {
+            if (it != null) {
+                viewModel = it
+            }
+        }
+        with(binding) {
+            setContentView(this.root)
+            lifecycleOwner = this@BaseActivity
+            //setVariable(BR.viewModel, viewModel)
 
+        }
+        setUpView()
     }
 
-    fun screenTitle(title: String) {
-        textViewTitle.text = title
+    abstract fun setViewModel(): ViewModel?
+
+    abstract fun getResId(): Int
+
+    open fun setUpView() {}
+
+    open fun showError(error: String) {
+        Snackbar.make(
+            this,
+            binding.root,
+            error,
+            Snackbar.LENGTH_SHORT,
+        ).setBackgroundTint(Color.RED).show()
     }
 
-    fun getImageButton(): ImageButton {
-        return imageButtonBack
-    }
-
-    protected fun launchActivity(newActivity: Class<AppCompatActivity>) {
-        startActivity(Intent(this, newActivity))
+    inline fun <reified T : AppCompatActivity> launchActivity() {
+        val intent = Intent(this, T::class.java)
+        startActivity(intent)
     }
 }

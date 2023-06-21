@@ -7,23 +7,54 @@
 
     <style name="Theme.TegB_Demo_App" parent="Base.Theme.TegB_Demo_App" />
 
+    //Style for TagB Login Button
     <style name="ThemeOverlay.Material3.Button.TagB">
         <item name="android:textColor">@color/deepAqua</item>
         <item name="font">@font/poppins_medium</item>
         <item name="android:textSize">16sp</item>
         <item name="backgroundTint">@color/tagBWhite</item>
         <item name="backgroundColor">@color/tagBWhite</item>
-        <item name="cornerRadius">10dp</item>
+        <item name="cornerRadius">5dp</item>
     </style>
 
+    //Simple text 16sp
     <style name="TextStyle16sp">
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">16sp</item>
     </style>
 
+    //Style for textField heading text
     <style name="TextFieldHeadingText">
         <item name="android:textColor">@color/tagBWhite</item>
         <item name="android:textSize">@dimen/_16dp</item>
         <item name="font">@font/poppins_medium</item>
+    </style>
+
+    //Style for showing Heading
+    <style name="TextStyle20sp">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="font">@font/poppins_semi_bold</item>
+    </style>
+
+    //Style for Simple result display
+    <style name="TextStyle16spGray">
+        <item name="android:textColor">#717171</item>
+        <item name="android:textSize">16sp</item>
+        <item name="font">@font/poppins_medium</item>
+    </style>
+
+    //Style for Segment Button
+    <style name="SegmentButtonStyle">
+        <item name="android:textColor">@color/tagBWhite</item>
+        <item name="font">@font/poppins_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="TextViewForTitle">
+        <item name="android:textColor">@color/tagBWhite</item>
+        <item name="font">@font/poppins_semi_bold</item>
+        <item name="android:textSize">18sp</item>
     </style>
 </resources>

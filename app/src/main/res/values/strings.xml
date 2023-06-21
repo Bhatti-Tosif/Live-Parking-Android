@@ -17,4 +17,17 @@
     <string name="txt_last_name">Last Name</string>
     <string name="tv_mobile_number">Mobile Number</string>
     <string name="txt_termsAndCondition"> By clicking create account you agree to RunParking Terms of Uses and Privacy Policy</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_add_promocode">Add PromoCode</string>
+    <string name="btn_save">Save</string>
+    <string name="hint_promocode_eg_tag50">Eg: TAG50</string>
+    <string name="txt_heading">Heading</string>
+    <string name="tv_expiring_on">Expiring On</string>
+    <string name="tv_usage">Usage</string>
+    <string name="tv_discount">Discount</string>
+    <string name="btn_promocode">PromoCode</string>
+    <string name="tv_tegb_demo_app_title">TegB Demo App</string>
+    <string name="title_customer_login">Customer Login</string>
+    <string name="title_customer_signup">Customer Sign-Up</string>
 </resources>

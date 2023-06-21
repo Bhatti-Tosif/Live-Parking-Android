@@ -22,16 +22,16 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show()
         }
 
-        viewModel.createuserFail.observe(this) {
+        viewModel.createUserFail.observe(this) {
             Toast.makeText(this, "Not Created", Toast.LENGTH_SHORT).show()
         }
 
-        binding.btnLogin.setOnClickListener(this)
+        binding.btnSignUp.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when  (v?.id) {
-            binding.btnLogin.id -> {
+            binding.btnSignUp.id -> {
                 val signUpRequest = SignUpRequestModel(binding.etEnterFirstName.text.toString(), binding.etEnterLastName.text.toString(), binding.etEnterEmail.text.toString(), binding.etEnterMobileNumber.text.toString(), binding.etPassword.text.toString())
                 viewModel.createUser(signUpRequest)
             }

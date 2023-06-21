@@ -25,15 +25,21 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="@dimen/_16dp" />
 
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolBar"
+        layout="@layout/top_common_nav_bar"/>
+
     <ImageView
         android:id="@+id/iv_logo_white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo_white"
-        android:layout_marginTop="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_personal"
@@ -42,11 +48,8 @@
         android:layout_marginStart="@dimen/_16dp"
         android:layout_marginTop="@dimen/_40dp"
         android:backgroundTint="@color/selected_btn_color"
-        android:fontFamily="@font/poppins_medium"
         android:text="@string/txt_personal"
-        android:textAllCaps="false"
-        android:textColor="@color/tagBWhite"
-        app:cornerRadius="@dimen/_10dp"
+        style="@style/SegmentButtonStyle"
         app:layout_constraintEnd_toStartOf="@+id/btn_business"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,12 +61,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40dp"
         android:layout_marginEnd="@dimen/_16dp"
-        android:backgroundTint="@color/deepAqua"
-        android:fontFamily="@font/poppins_medium"
+        android:backgroundTint="@color/btn_selected_aqua"
+        style="@style/SegmentButtonStyle"
         android:text="@string/txt_business"
-        android:textAllCaps="false"
-        android:textColor="@color/tagBWhite"
-        app:cornerRadius="@dimen/_10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_personal"
         app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
@@ -84,7 +84,6 @@
         android:id="@+id/txt_first_name"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="@dimen/_10dp"
         app:boxCornerRadiusBottomStart="@dimen/_10dp"
@@ -99,6 +98,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_enter_first_name"
+            android:background="@drawable/edit_text_white_boarder"
+            android:textColor="@color/edit_text_boarder_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -118,7 +119,6 @@
         android:id="@+id/txt_last_name"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="@dimen/_10dp"
         app:boxCornerRadiusBottomStart="@dimen/_10dp"
@@ -132,6 +132,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_enter_last_name"
+            android:background="@drawable/edit_text_white_boarder"
+            android:textColor="@color/edit_text_boarder_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +152,6 @@
         android:id="@+id/txt_email"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="@dimen/_10dp"
         app:boxCornerRadiusBottomStart="@dimen/_10dp"
@@ -164,6 +165,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_enter_email"
+            android:background="@drawable/edit_text_white_boarder"
+            android:textColor="@color/edit_text_boarder_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -182,7 +185,6 @@
         android:id="@+id/txt_mobile_number"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="@dimen/_10dp"
         app:boxCornerRadiusBottomStart="@dimen/_10dp"
@@ -196,6 +198,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_enter_mobile_number"
+            android:background="@drawable/edit_text_white_boarder"
+            android:textColor="@color/edit_text_boarder_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -215,7 +219,6 @@
         android:id="@+id/txt_password"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="@dimen/_10dp"
         app:boxCornerRadiusBottomStart="@dimen/_10dp"
@@ -231,17 +234,19 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/edit_text_white_boarder"
+            android:textColor="@color/edit_text_boarder_color"
             android:id="@+id/et_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_signUp"
         style="@style/ThemeOverlay.Material3.Button.TagB"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_40dp"
-        android:text="@string/btn_login_with_email"
+        android:text="@string/btn_create_an_account"
         app:layout_constraintEnd_toStartOf="@+id/right_guide"
         app:layout_constraintStart_toStartOf="@id/left_guide"
         app:layout_constraintTop_toBottomOf="@+id/txt_password" />
@@ -255,19 +260,58 @@
         android:text="@string/txt_termsAndCondition"
         app:layout_constraintEnd_toStartOf="@+id/right_guide"
         app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_signUp" />
+
+    <View
+        android:id="@+id/left_view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/edit_text_boarder_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_or"
+        app:layout_constraintEnd_toStartOf="@+id/tv_or"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toTopOf="@id/tv_or" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_or"
+        style="@style/TextStyle16sp"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:textColor="@color/tagBWhite"
+        app:layout_constraintEnd_toStartOf="@+id/right_view"
+        app:layout_constraintStart_toEndOf="@id/left_view"
+        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+
+    <View
+        android:id="@+id/right_view"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_1dp"
+        android:background="@color/edit_text_boarder_color"
+        app:layout_constraintBottom_toBottomOf="@id/tv_or"
+        app:layout_constraintEnd_toStartOf="@id/right_guide"
+        app:layout_constraintStart_toEndOf="@+id/tv_or"
+        app:layout_constraintTop_toTopOf="@id/tv_or" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_apple"
         style="@style/ThemeOverlay.Material3.Button.TagB"
         android:layout_width="@dimen/_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40dp"
+        android:layout_marginTop="@dimen/_20dp"
         android:text="@string/txt_continue_with_apple"
+        app:icon="@drawable/apple_icone"
+        app:iconGravity="textStart"
+        android:gravity="center"
+        app:iconPadding="@dimen/_10dp"
+        app:iconTint="@color/black"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/right_guide"
         app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+        app:layout_constraintTop_toBottomOf="@id/tv_or" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_google"
@@ -277,7 +321,13 @@
         android:layout_marginTop="@dimen/_20dp"
         android:text="@string/txt_google"
         android:textColor="@color/googleRedColor"
+        app:icon="@drawable/google"
+        android:gravity="center"
+        app:iconGravity="textStart"
+        app:iconTint="@color/googleRedColor"
         android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_faceBook"
         app:layout_constraintStart_toStartOf="@id/left_guide"
         app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
@@ -289,6 +339,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20dp"
         android:text="@string/txt_facebook"
+        app:icon="@drawable/face_book"
+        app:iconTint="@color/faceBookColor"
+        app:iconGravity="textStart"
         android:textColor="@color/faceBookColor"
         app:layout_constraintStart_toEndOf="@+id/btn_google"
         app:layout_constraintEnd_toStartOf="@+id/right_guide"
