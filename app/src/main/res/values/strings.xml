@@ -32,4 +32,13 @@
     <string name="title_customer_signup">Customer Sign-Up</string>
     <string name="btn_logout">LogOut</string>
     <string name="txt_logo">logo</string>
+    <string name="txt_profile">Profile</string>
+    <string name="txt_parking_location">Parking Location</string>
+    <string name="txt_home">Home</string>
+    <string name="first_name_require">FirstName Required</string>
+    <string name="last_name_require">LastName Required</string>
+    <string name="email_require">Email Required</string>
+    <string name="mobileNumber_require">Mobile Number Required</string>
+    <string name="password_require">Password Required</string>
+    <string name="wrong_credential">Wrong Credential</string>
 </resources>

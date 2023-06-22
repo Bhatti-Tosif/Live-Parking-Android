@@ -17,7 +17,7 @@ data class SignUpRequestModel(
     var registrationPlatform: String = "email",
     var termsAgreement: Boolean = true,
     var platform: String = "ios",
-    var deviceId: String = "",
+    var deviceId: String = "androids",
     var deviceToken: String = "deviceToken",
     var phoneExtension: String = "Yes",
 )

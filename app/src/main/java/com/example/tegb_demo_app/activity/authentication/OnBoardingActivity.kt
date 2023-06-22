@@ -1,41 +1,70 @@
 package com.example.tegb_demo_app.activity.authentication
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
+import androidx.lifecycle.ViewModelProvider
+import com.example.tegb_demo_app.R
 import com.example.tegb_demo_app.activity.dashBoard.DashBoardMainActivity
+import com.example.tegb_demo_app.baseClass.BaseActivity
 import com.example.tegb_demo_app.databinding.ActivityOnBoardingBinding
 import com.example.tegb_demo_app.utils.sharedPrefference.prefs
+import com.example.tegb_demo_app.viewModel.OnBoardingViewModel
 
-class OnBoardingActivity : AppCompatActivity(), View.OnClickListener {
+class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding, OnBoardingViewModel>() {
 
-    private lateinit var binding: ActivityOnBoardingBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    override fun setViewModel(): OnBoardingViewModel = ViewModelProvider(this)[OnBoardingViewModel::class.java]
 
-        binding.btnLogin.setOnClickListener(this)
-        binding.btnSignUp.setOnClickListener(this)
+    override fun getResId(): Int = R.layout.activity_on_boarding
+
+    override fun setUpView() {
+        binding.viewModel = viewModel
+        initialSetUp()
+        observer()
+    }
+
+    private fun observer() {
+
+        viewModel.navigation.observe(this) {
+            when (it) {
+                OnBoardingViewModel.NavigationEvent.LoginEvent -> launchActivity<LoginActivity>()
+                OnBoardingViewModel.NavigationEvent.SignUpEvent -> launchActivity<SignUpActivity>()
+            }
+        }
+    }
+
+    private fun initialSetUp() {
 
         if (prefs.isUserLogin) {
-            val intent = Intent(this, DashBoardMainActivity::class.java)
-            startActivity(intent)
+            launchActivity<DashBoardMainActivity>()
             finish()
         }
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            binding.btnLogin.id -> {
-                val intent = Intent(this, LoginActivity::class.java)
-                startActivity(intent)
-            }
-            binding.btnSignUp.id -> {
-                val intent = Intent(this, SignUpActivity::class.java)
-                startActivity(intent)
-            }
-        }
-    }
+//    private lateinit var binding: ActivityOnBoardingBinding
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//
+//        binding.btnLogin.setOnClickListener(this)
+//        binding.btnSignUp.setOnClickListener(this)
+//
+//        if (prefs.isUserLogin) {
+//            val intent = Intent(this, DashBoardMainActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//    }
+
+    //    override fun onClick(v: View?) {
+//        when (v?.id) {
+//            binding.btnLogin.id -> {
+//                val intent = Intent(this, LoginActivity::class.java)
+//                startActivity(intent)
+//            }
+//            binding.btnSignUp.id -> {
+//                val intent = Intent(this, SignUpActivity::class.java)
+//                startActivity(intent)
+//            }
+//        }
+//    }
+
 }

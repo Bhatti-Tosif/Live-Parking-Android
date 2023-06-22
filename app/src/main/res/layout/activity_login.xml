@@ -110,6 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Email Address"
+                    android:text="@={viewModel.email}"
                     android:background="@drawable/edit_text_white_boarder"
                     android:maxLines="1"
                     android:inputType="textEmailAddress"
@@ -147,6 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:text="Password"
+                    android:text="@={viewModel.password}"
                     android:background="@drawable/edit_text_white_boarder"
                     android:inputType="textPassword"
                     android:textColor="@color/edit_text_boarder_color" />

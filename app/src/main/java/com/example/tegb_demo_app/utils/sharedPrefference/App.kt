@@ -6,7 +6,7 @@ val prefs: Preferences by lazy {
     App.prefs!!
 }
 
-/** This class for global access sharedPreferences */
+/** This class for global access sharedPreferences and application handle */
 class App: Application() {
 
     companion object {

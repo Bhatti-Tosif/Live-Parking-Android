@@ -1,363 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/deepAqua"
-    tools:context=".activity.authentication.LoginActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_guide"
+        <variable
+            name="viewModel"
+            type="com.example.tegb_demo_app.viewModel.SignUpViewModel" />
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/_16dp" />
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_guide"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/_16dp" />
-
-    <include
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toolBar"
-        layout="@layout/top_common_nav_bar"/>
-
-    <ImageView
-        android:id="@+id/iv_logo_white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/logo_white"
-        android:layout_marginTop="@dimen/_20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar"
-        android:contentDescription="@string/txt_logo" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_personal"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_16dp"
-        android:layout_marginTop="@dimen/_40dp"
-        android:backgroundTint="@color/selected_btn_color"
-        android:text="@string/txt_personal"
-        style="@style/SegmentButtonStyle"
-        app:layout_constraintEnd_toStartOf="@+id/btn_business"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_business"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40dp"
-        android:layout_marginEnd="@dimen/_16dp"
-        android:backgroundTint="@color/btn_selected_aqua"
-        style="@style/SegmentButtonStyle"
-        android:text="@string/txt_business"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_personal"
-        app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
-
-    <TextView
-        android:id="@+id/tv_firs_name"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_first_name"
-        android:layout_marginEnd="@dimen/_10dp"
-        app:layout_constraintEnd_toStartOf="@id/tv_last_name"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/btn_business" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_first_name"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
-        app:boxCornerRadiusBottomStart="@dimen/_10dp"
-        app:boxCornerRadiusTopEnd="@dimen/_10dp"
-        app:boxCornerRadiusTopStart="@dimen/_10dp"
-        app:boxStrokeColor="@color/tagBWhite"
-        app:boxStrokeWidth="@dimen/_2dp"
-        android:layout_marginEnd="@dimen/_10dp"
-        app:layout_constraintEnd_toStartOf="@+id/txt_last_name"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_enter_first_name"
-            android:background="@drawable/edit_text_white_boarder"
-            android:textColor="@color/edit_text_boarder_color"
-            android:layout_width="match_parent"
-            android:maxLines="1"
-            android:nextFocusForward="@id/et_enter_last_name"
-            android:imeOptions="actionNext"
-            android:inputType="textPersonName"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tv_last_name"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_last_name"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintStart_toEndOf="@+id/tv_firs_name"
-        app:layout_constraintTop_toBottomOf="@+id/btn_business" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_last_name"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
-        app:boxCornerRadiusBottomStart="@dimen/_10dp"
-        app:boxCornerRadiusTopEnd="@dimen/_10dp"
-        app:boxCornerRadiusTopStart="@dimen/_10dp"
-        app:boxStrokeColor="@color/tagBWhite"
-        app:boxStrokeWidth="@dimen/_2dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintStart_toEndOf="@id/txt_first_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_enter_last_name"
-            android:background="@drawable/edit_text_white_boarder"
-            android:textColor="@color/edit_text_boarder_color"
-            android:maxLines="1"
-            android:inputType="textPersonName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tv_email_id"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_email_id"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/txt_first_name" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_email"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
-        app:boxCornerRadiusBottomStart="@dimen/_10dp"
-        app:boxCornerRadiusTopEnd="@dimen/_10dp"
-        app:boxCornerRadiusTopStart="@dimen/_10dp"
-        app:boxStrokeColor="@color/tagBWhite"
-        app:boxStrokeWidth="@dimen/_2dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_email_id">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_enter_email"
-            android:background="@drawable/edit_text_white_boarder"
-            android:textColor="@color/edit_text_boarder_color"
-            android:maxLines="1"
-            android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/tv_mobile_number"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/tv_mobile_number"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_mobile_number"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
-        app:boxCornerRadiusBottomStart="@dimen/_10dp"
-        app:boxCornerRadiusTopEnd="@dimen/_10dp"
-        app:boxCornerRadiusTopStart="@dimen/_10dp"
-        app:boxStrokeColor="@color/tagBWhite"
-        app:boxStrokeWidth="@dimen/_2dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_mobile_number">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_enter_mobile_number"
-            android:background="@drawable/edit_text_white_boarder"
-            android:textColor="@color/edit_text_boarder_color"
-            android:maxLines="1"
-            android:inputType="phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <TextView
-        android:id="@+id/tv_password"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_password"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/txt_mobile_number" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_password"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline"
-        app:boxCornerRadiusBottomEnd="@dimen/_10dp"
-        app:boxCornerRadiusBottomStart="@dimen/_10dp"
-        app:boxCornerRadiusTopEnd="@dimen/_10dp"
-        app:boxCornerRadiusTopStart="@dimen/_10dp"
-        app:boxStrokeColor="@color/white"
-        app:boxStrokeWidth="@dimen/_2dp"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_password"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:background="@drawable/edit_text_white_boarder"
-            android:textColor="@color/edit_text_boarder_color"
-            android:id="@+id/et_password"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:background="@color/deepAqua"
+            tools:context=".activity.authentication.LoginActivity">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_signUp"
-        style="@style/ThemeOverlay.Material3.Button.TagB"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_40dp"
-        android:text="@string/btn_create_an_account"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/txt_password" />
 
-    <TextView
-        android:id="@+id/tv_forgot_password"
-        style="@style/TextFieldHeadingText"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_termsAndCondition"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signUp" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/right_guide"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_16dp" />
 
-    <View
-        android:id="@+id/left_view"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_1dp"
-        android:background="@color/edit_text_boarder_color"
-        app:layout_constraintBottom_toBottomOf="@id/tv_or"
-        app:layout_constraintEnd_toStartOf="@+id/tv_or"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toTopOf="@id/tv_or" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/left_guide"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_16dp" />
 
-    <TextView
-        android:id="@+id/tv_or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txt_or"
-        style="@style/TextStyle16sp"
-        android:layout_marginTop="@dimen/_20dp"
-        android:layout_marginHorizontal="@dimen/_10dp"
-        android:textColor="@color/tagBWhite"
-        app:layout_constraintEnd_toStartOf="@+id/right_view"
-        app:layout_constraintStart_toEndOf="@id/left_view"
-        app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolBar"
+                layout="@layout/top_common_nav_bar" />
 
-    <View
-        android:id="@+id/right_view"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/_1dp"
-        android:background="@color/edit_text_boarder_color"
-        app:layout_constraintBottom_toBottomOf="@id/tv_or"
-        app:layout_constraintEnd_toStartOf="@id/right_guide"
-        app:layout_constraintStart_toEndOf="@+id/tv_or"
-        app:layout_constraintTop_toTopOf="@id/tv_or" />
+            <ImageView
+                android:id="@+id/iv_logo_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_white"
+                android:layout_marginTop="@dimen/_20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolBar"
+                android:contentDescription="@string/txt_logo" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_apple"
-        style="@style/ThemeOverlay.Material3.Button.TagB"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_continue_with_apple"
-        app:icon="@drawable/apple_icone"
-        app:iconGravity="textStart"
-        android:gravity="center"
-        app:iconPadding="@dimen/_10dp"
-        app:iconTint="@color/black"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@id/tv_or" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_personal"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16dp"
+                android:layout_marginTop="@dimen/_40dp"
+                android:backgroundTint="@color/selected_btn_color"
+                android:text="@string/txt_personal"
+                style="@style/SegmentButtonStyle"
+                app:layout_constraintEnd_toStartOf="@+id/btn_business"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_google"
-        style="@style/ThemeOverlay.Material3.Button.TagB"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_google"
-        android:textColor="@color/googleRedColor"
-        app:icon="@drawable/google"
-        android:gravity="center"
-        app:iconGravity="textStart"
-        app:iconTint="@color/googleRedColor"
-        android:layout_marginEnd="@dimen/_10dp"
-        android:layout_marginBottom="@dimen/_20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_faceBook"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_business"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40dp"
+                android:layout_marginEnd="@dimen/_16dp"
+                android:backgroundTint="@color/btn_selected_aqua"
+                style="@style/SegmentButtonStyle"
+                android:text="@string/txt_business"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_personal"
+                app:layout_constraintTop_toBottomOf="@id/iv_logo_white" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_faceBook"
-        style="@style/ThemeOverlay.Material3.Button.TagB"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20dp"
-        android:text="@string/txt_facebook"
-        app:icon="@drawable/face_book"
-        app:iconTint="@color/faceBookColor"
-        app:iconGravity="textStart"
-        android:textColor="@color/faceBookColor"
-        app:layout_constraintStart_toEndOf="@+id/btn_google"
-        app:layout_constraintEnd_toStartOf="@+id/right_guide"
-        app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+            <TextView
+                android:id="@+id/tv_firs_name"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_first_name"
+                android:layout_marginEnd="@dimen/_10dp"
+                app:layout_constraintEnd_toStartOf="@id/tv_last_name"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_business" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_first_name"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+                app:boxCornerRadiusBottomStart="@dimen/_10dp"
+                app:boxCornerRadiusTopEnd="@dimen/_10dp"
+                app:boxCornerRadiusTopStart="@dimen/_10dp"
+                app:boxStrokeColor="@color/tagBWhite"
+                app:boxStrokeWidth="@dimen/_2dp"
+                android:layout_marginEnd="@dimen/_10dp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_last_name"
+                app:layout_constraintStart_toStartOf="@+id/left_guide"
+                app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_enter_first_name"
+                    android:background="@drawable/edit_text_white_boarder"
+                    android:textColor="@color/edit_text_boarder_color"
+                    android:layout_width="match_parent"
+                    android:maxLines="1"
+                    android:text="@={viewModel.firstName}"
+                    android:nextFocusForward="@id/et_enter_last_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_last_name"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_last_name"
+                app:layout_constraintEnd_toEndOf="@id/right_guide"
+                app:layout_constraintStart_toEndOf="@+id/tv_firs_name"
+                app:layout_constraintTop_toBottomOf="@+id/btn_business" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_last_name"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+                app:boxCornerRadiusBottomStart="@dimen/_10dp"
+                app:boxCornerRadiusTopEnd="@dimen/_10dp"
+                app:boxCornerRadiusTopStart="@dimen/_10dp"
+                app:boxStrokeColor="@color/tagBWhite"
+                app:boxStrokeWidth="@dimen/_2dp"
+                app:layout_constraintEnd_toEndOf="@id/right_guide"
+                app:layout_constraintStart_toEndOf="@id/txt_first_name"
+                app:layout_constraintTop_toBottomOf="@id/tv_firs_name">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_enter_last_name"
+                    android:background="@drawable/edit_text_white_boarder"
+                    android:textColor="@color/edit_text_boarder_color"
+                    android:maxLines="1"
+                    android:text="@={viewModel.lastName}"
+                    android:inputType="textPersonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_email_id"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_email_id"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/txt_first_name" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_email"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+                app:boxCornerRadiusBottomStart="@dimen/_10dp"
+                app:boxCornerRadiusTopEnd="@dimen/_10dp"
+                app:boxCornerRadiusTopStart="@dimen/_10dp"
+                app:boxStrokeColor="@color/tagBWhite"
+                app:boxStrokeWidth="@dimen/_2dp"
+                app:layout_constraintEnd_toEndOf="@id/right_guide"
+                app:layout_constraintStart_toStartOf="@+id/left_guide"
+                app:layout_constraintTop_toBottomOf="@id/tv_email_id">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_enter_email"
+                    android:background="@drawable/edit_text_white_boarder"
+                    android:textColor="@color/edit_text_boarder_color"
+                    android:maxLines="1"
+                    android:text="@={viewModel.email}"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tv_mobile_number"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/tv_mobile_number"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_mobile_number"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+                app:boxCornerRadiusBottomStart="@dimen/_10dp"
+                app:boxCornerRadiusTopEnd="@dimen/_10dp"
+                app:boxCornerRadiusTopStart="@dimen/_10dp"
+                app:boxStrokeColor="@color/tagBWhite"
+                app:boxStrokeWidth="@dimen/_2dp"
+                app:layout_constraintEnd_toEndOf="@id/right_guide"
+                app:layout_constraintStart_toStartOf="@+id/left_guide"
+                app:layout_constraintTop_toBottomOf="@id/tv_mobile_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_enter_mobile_number"
+                    android:background="@drawable/edit_text_white_boarder"
+                    android:textColor="@color/edit_text_boarder_color"
+                    android:maxLines="1"
+                    android:text="@={viewModel.mobileNumber}"
+                    android:inputType="phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tv_password"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_password"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/txt_mobile_number" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_password"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="@dimen/_10dp"
+                app:boxCornerRadiusBottomStart="@dimen/_10dp"
+                app:boxCornerRadiusTopEnd="@dimen/_10dp"
+                app:boxCornerRadiusTopStart="@dimen/_10dp"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidth="@dimen/_2dp"
+                app:layout_constraintEnd_toEndOf="@id/right_guide"
+                app:layout_constraintStart_toStartOf="@+id/left_guide"
+                app:layout_constraintTop_toBottomOf="@id/tv_password"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:text="@={viewModel.password}"
+                    android:background="@drawable/edit_text_white_boarder"
+                    android:textColor="@color/edit_text_boarder_color"
+                    android:id="@+id/et_password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_signUp"
+                style="@style/ThemeOverlay.Material3.Button.TagB"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40dp"
+                android:text="@string/btn_create_an_account"
+                app:layout_constraintEnd_toStartOf="@+id/right_guide"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/txt_password" />
+
+            <TextView
+                android:id="@+id/tv_forgot_password"
+                style="@style/TextFieldHeadingText"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_termsAndCondition"
+                app:layout_constraintEnd_toStartOf="@+id/right_guide"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_signUp" />
+
+            <View
+                android:id="@+id/left_view"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1dp"
+                android:background="@color/edit_text_boarder_color"
+                app:layout_constraintBottom_toBottomOf="@id/tv_or"
+                app:layout_constraintEnd_toStartOf="@+id/tv_or"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toTopOf="@id/tv_or" />
+
+            <TextView
+                android:id="@+id/tv_or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_or"
+                style="@style/TextStyle16sp"
+                android:layout_marginTop="@dimen/_20dp"
+                android:layout_marginHorizontal="@dimen/_10dp"
+                android:textColor="@color/tagBWhite"
+                app:layout_constraintEnd_toStartOf="@+id/right_view"
+                app:layout_constraintStart_toEndOf="@id/left_view"
+                app:layout_constraintTop_toBottomOf="@id/tv_forgot_password" />
+
+            <View
+                android:id="@+id/right_view"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_1dp"
+                android:background="@color/edit_text_boarder_color"
+                app:layout_constraintBottom_toBottomOf="@id/tv_or"
+                app:layout_constraintEnd_toStartOf="@id/right_guide"
+                app:layout_constraintStart_toEndOf="@+id/tv_or"
+                app:layout_constraintTop_toTopOf="@id/tv_or" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_apple"
+                style="@style/ThemeOverlay.Material3.Button.TagB"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_continue_with_apple"
+                app:icon="@drawable/apple_icone"
+                app:iconGravity="textStart"
+                android:gravity="center"
+                app:iconPadding="@dimen/_10dp"
+                app:iconTint="@color/black"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/right_guide"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_google"
+                style="@style/ThemeOverlay.Material3.Button.TagB"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_google"
+                android:textColor="@color/googleRedColor"
+                app:icon="@drawable/google"
+                android:gravity="center"
+                app:iconGravity="textStart"
+                app:iconTint="@color/googleRedColor"
+                android:layout_marginEnd="@dimen/_10dp"
+                android:layout_marginBottom="@dimen/_20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btn_faceBook"
+                app:layout_constraintStart_toStartOf="@id/left_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_faceBook"
+                style="@style/ThemeOverlay.Material3.Button.TagB"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20dp"
+                android:text="@string/txt_facebook"
+                app:icon="@drawable/face_book"
+                app:iconTint="@color/faceBookColor"
+                app:iconGravity="textStart"
+                android:textColor="@color/faceBookColor"
+                app:layout_constraintStart_toEndOf="@+id/btn_google"
+                app:layout_constraintEnd_toStartOf="@+id/right_guide"
+                app:layout_constraintTop_toBottomOf="@+id/btn_apple" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
