@@ -58,8 +58,35 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    //Change StatusBar Color
     <style name="StatusBarTheme" parent="Theme.Material3.Light.NoActionBar">
         <item name="android:statusBarColor">@color/deepAqua</item>
+    </style>
+
+    // In colors.xml
+    <style name="CursorColor">
+        <item name="colorPrimary">@color/white</item>
+    </style>>
+
+    //TextInput EditText Common Style
+    <style name="TextInputEditTextStyle">
+        <item name="android:background">@drawable/edit_text_white_boarder</item>
+        <item name="android:textColor">@color/edit_text_boarder_color</item>
+        <item name="maxLines">1</item>
+        <item name="theme">@style/CursorColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    //TextInputLayout common Style
+    <style name="TextInputLayoutStyle">
+        <item name="boxBackgroundMode">outline</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_10dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_10dp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_10dp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_10dp</item>
+        <item name="boxStrokeColor">@color/tagBWhite</item>
+        <item name="boxStrokeWidth">@dimen/_2dp</item>
     </style>
 
 </resources>
