@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.tegb_demo_app.viewModel.OnBoardingViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepAqua"
+        tools:context=".activity.authentication.OnBoardingActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_255dp"
+            android:id="@+id/iv_bg_onboard"
+            app:srcCompat="@drawable/rectangle"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_tagb"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_bg_onboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.388"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/txt_logo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/iv_face_id"
+            android:layout_marginTop="@dimen/_40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/face_icone"
+            app:layout_constraintTop_toBottomOf="@id/iv_bg_onboard"
+            android:contentDescription="@string/txt_face_id_icon" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_login"
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_60dp"
+            style="@style/ThemeOverlay.Material3.Button.TagB"
+            android:backgroundTint="@color/tagBWhite"
+            android:onClick="@{() -> viewModel.gotoLogin()}"
+            android:text="@string/btn_login_with_email"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/iv_face_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_signUp"
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_15dp"
+            style="@style/ThemeOverlay.Material3.Button.TagB"
+            android:backgroundTint="@color/tagBWhite"
+            android:onClick="@{() -> viewModel.gotoSignUp()}"
+            android:text="@string/btn_create_an_account"
+            android:textColor="@color/black"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16dp"
+            android:layout_marginTop="@dimen/_15dp"
+            android:text="@string/btn_continue_as_guest"
+            style="@style/ThemeOverlay.Material3.Button.TagB"
+            android:backgroundTint="@color/btn_selected_aqua"
+            android:textColor="@color/tagBWhite"
+            app:strokeWidth="@dimen/_1dp"
+            app:strokeColor="@color/edit_text_boarder_color"
+            android:textAllCaps="false"
+            app:layout_constraintTop_toBottomOf="@+id/btn_signUp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

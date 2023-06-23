@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_bottom_navigation"
+    app:startDestination="@id/promoCodeFragment">
+    <fragment
+        android:id="@+id/promoCodeFragment"
+        android:name="com.example.tegb_demo_app.fragment.PromoCodeFragment"
+        android:label="fragment_promocode"
+        tools:layout="@layout/fragment_promocode" />
+    <fragment
+        android:id="@+id/parkingLocationFragment"
+        android:name="com.example.tegb_demo_app.fragment.ParkingLocationFragment"
+        android:label="fragment_parking_location"
+        tools:layout="@layout/fragment_parking_location" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.tegb_demo_app.fragment.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

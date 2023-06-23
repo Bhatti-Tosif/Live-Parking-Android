@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item android:title="@string/txt_home"
+            android:id="@id/promoCodeFragment"
+            android:icon="@drawable/home_icone"
+            app:showAsAction="ifRoom"
+            />
+
+        <item android:title="@string/txt_parking_location"
+            android:id="@+id/parkingLocationFragment"
+            android:icon="@drawable/verify"
+            app:showAsAction="ifRoom"/>
+
+        <item android:title="@string/txt_profile"
+            android:id="@+id/profileFragment"
+            android:icon="@drawable/report_icone"
+            app:showAsAction="ifRoom"/>
+
+</menu>
