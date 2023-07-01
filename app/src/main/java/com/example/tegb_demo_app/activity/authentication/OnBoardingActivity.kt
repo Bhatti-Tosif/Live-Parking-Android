@@ -2,10 +2,8 @@ package com.example.tegb_demo_app.activity.authentication
 
 import androidx.lifecycle.ViewModelProvider
 import com.example.tegb_demo_app.R
-import com.example.tegb_demo_app.activity.dashBoard.DashBoardMainActivity
 import com.example.tegb_demo_app.baseClass.BaseActivity
 import com.example.tegb_demo_app.databinding.ActivityOnBoardingBinding
-import com.example.tegb_demo_app.utils.sharedPrefference.prefs
 import com.example.tegb_demo_app.viewModel.OnBoardingViewModel
 
 class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding, OnBoardingViewModel>() {
@@ -32,10 +30,10 @@ class OnBoardingActivity : BaseActivity<ActivityOnBoardingBinding, OnBoardingVie
 
     private fun initialSetUp() {
 
-        if (prefs.isUserLogin) {
-            launchActivity<DashBoardMainActivity>()
-            finish()
-        }
+//        if (prefs.isUserLogin) {
+//            launchActivity<DashBoardMainActivity>()
+//            finish()
+//        }
     }
 
 //    private lateinit var binding: ActivityOnBoardingBinding

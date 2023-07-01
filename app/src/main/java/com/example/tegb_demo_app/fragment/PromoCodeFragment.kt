@@ -28,8 +28,17 @@ class PromoCodeFragment : Fragment() {
         binding = FragmentPromocodeBinding.inflate(inflater)
         viewModel = PromoCodeViewModel()
         prepareRecyclerView()
+        observer()
+        getPromoCode()
+        return binding.root
 
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun observer() {
         viewModel.promoCodeDetail.observe(viewLifecycleOwner) { data ->
+            binding.shimmerContainer.stopShimmer()
+            binding.shimmerContainer.visibility = View.GONE
             promoCodeList.clear()
             if (data != null) {
                 Log.d("DATA", data.toString())
@@ -38,15 +47,10 @@ class PromoCodeFragment : Fragment() {
             promoCodeAdapter.submitList(promoCodeList)
             promoCodeAdapter.notifyDataSetChanged()
         }
-        getPromoCode()
-
-        return binding.root
-
     }
 
     private fun prepareRecyclerView()  {
-//        binding.pbLoader.visibility = View.VISIBLE
-//        binding.bgLoading.visibility = View.VISIBLE
+        binding.shimmerContainer.startShimmer()
         promoCodeAdapter = PromoCodeAdapter()
         binding.rvPromoCode.apply {
             adapter = promoCodeAdapter

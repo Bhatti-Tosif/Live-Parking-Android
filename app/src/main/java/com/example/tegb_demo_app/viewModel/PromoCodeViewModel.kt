@@ -1,7 +1,6 @@
 package com.example.tegb_demo_app.viewModel
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.tegb_demo_app.model.response.BaseResponseModel
 import com.example.tegb_demo_app.model.response.PromoCodeResponseModel

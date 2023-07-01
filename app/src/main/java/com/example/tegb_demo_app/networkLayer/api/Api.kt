@@ -4,6 +4,7 @@ import com.example.tegb_demo_app.model.request.LoginRequestModel
 import com.example.tegb_demo_app.model.request.SignUpRequestModel
 import com.example.tegb_demo_app.model.response.BaseResponseModel
 import com.example.tegb_demo_app.model.response.LoginResponse
+import com.example.tegb_demo_app.model.response.ParkingLocationResponseModel
 import com.example.tegb_demo_app.model.response.PromoCodeResponseModel
 import com.example.tegb_demo_app.utils.AppConstant
 import retrofit2.Call
@@ -22,4 +23,8 @@ interface Api {
 
     @GET(AppConstant.promoCode_path)
     fun getPromoCode(@HeaderMap headers: Map<String, String> = AppConstant.headerForPromoCode): Call<BaseResponseModel<ArrayList<PromoCodeResponseModel>>>
+
+    @GET(AppConstant.parking_location_path)
+    fun getParkingLocation(@HeaderMap headers: Map<String, String> = AppConstant.headerForPromoCode
+    ): Call<BaseResponseModel<ArrayList<ParkingLocationResponseModel>>>
 }

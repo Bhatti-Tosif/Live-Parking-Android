@@ -3,11 +3,14 @@ package com.example.tegb_demo_app.viewModel
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.tegb_demo_app.R
 import com.example.tegb_demo_app.baseClass.BaseViewModel
 import com.example.tegb_demo_app.model.request.SignUpRequestModel
 import com.example.tegb_demo_app.model.response.BaseResponseModel
 import com.example.tegb_demo_app.model.response.LoginResponse
 import com.example.tegb_demo_app.networkLayer.repository.AuthRepository
+import com.example.tegb_demo_app.utils.sharedPrefference.App
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,6 +23,10 @@ class SignUpViewModel : BaseViewModel() {
     private val _createUserFail = MutableLiveData<String>()
     val createUserFail: LiveData<String>
         get() = _createUserFail
+
+    private val _validationSignUp = MutableLiveData<String>()
+    val validationSignUp: LiveData<String>
+        get() = _validationSignUp
 
     /** Data Change Through XML Two way binding */
     val firstName = MutableLiveData<String>()
@@ -37,6 +44,7 @@ class SignUpViewModel : BaseViewModel() {
     /** SignUp Validation */
     fun doSignUp() {
         if (firstName.value?.isNotEmpty() == true && lastName.value?.isNotEmpty() == true && email.value?.isNotEmpty() == true && mobileNumber.value?.isNotEmpty() == true && password.value?.isNotEmpty() == true) {
+            _validationSignUp.postValue("")
             createUser(
                 SignUpRequestModel(
                     firstName.value.toString(),
@@ -73,9 +81,19 @@ class SignUpViewModel : BaseViewModel() {
                 if (response.isSuccessful && response.body() != null) {
                     Log.d("API", response.body()?.data.toString())
                     _userCreated.value = response.body()?.data
+                }
+                if (response.errorBody() != null) {
+                    try {
+                        _createUserFail.value = response.errorBody()?.string()?.let {
+                            JSONObject(
+                                it
+                            ).getString(App.instance.getString(R.string.message))
+                        }
+                    } catch (e: Exception) {
+                        _createUserFail.value = e.localizedMessage
+                    }
                 } else {
-                    Log.d("API", "Error in Response ${response.errorBody()}")
-                    _createUserFail.value = response.body()?.error.toString()
+                    _createUserFail.value = App.instance.getString(R.string.nullResponse)
                 }
             }
 

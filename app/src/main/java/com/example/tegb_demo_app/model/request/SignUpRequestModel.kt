@@ -1,23 +1,28 @@
 package com.example.tegb_demo_app.model.request
 
+import com.google.gson.annotations.SerializedName
+
 data class SignUpRequestModel(
-    var firstName: String,
-    var lastName: String,
-    var email: String,
-    var mobileNumber: String,
-    var password: String,
-    var businessName: String = "Developer",
-    var businessAddress: String = "simform",
-    var country: String = "India",
-    var state: String = "Gujarat",
-    var city: String = "Ahmedabad",
-    var zipCode: String = "333310",
-    var userType: String = "business",
-    var newsLetterAlert: Boolean = true,
-    var registrationPlatform: String = "email",
-    var termsAgreement: Boolean = true,
-    var platform: String = "ios",
-    var deviceId: String = "androids",
-    var deviceToken: String = "deviceToken",
-    var phoneExtension: String = "Yes",
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    @SerializedName("phone")
+    val mobileNumber: String,
+    val password: String,
+    val businessName: String = "business",
+    @SerializedName("address")
+    val businessAddress: String = "businessAddress",
+    val country: String = "India",
+    val state: String = "state",
+    val city: String = "city",
+    @SerializedName("zipcode")
+    val zipCode: String = "zipcode",
+    val userType: String = "business",
+    val newsLetterAlert: Boolean = false,
+    val registrationPlatform: String = "email",
+    val termsAgreement: Boolean = true,
+    val platform: String = "IOS",
+    val deviceId: String = "test_android",
+    val deviceToken: String = "Bad device token",
+    val phoneExtension: String = "+91"
 )

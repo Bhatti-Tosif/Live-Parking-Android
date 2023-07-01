@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".utils.sharedPrefference.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,12 +14,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/StatusBarTheme"
-        tools:targetApi="31"
-        android:name=".utils.sharedPrefference.App">
+        tools:targetApi="31">
+        <activity
+            android:name=".main.LaunchActivity"
+            android:exported="true"
+            android:theme="@style/WhiteStatusBarTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.dashBoard.DashBoardMainActivity"
-            android:launchMode="singleTop"
-            android:exported="false" />
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".activity.authentication.SignUpActivity"
             android:exported="false" />
@@ -27,12 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".activity.authentication.OnBoardingActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false"
+            android:theme="@style/WhiteStatusBarTheme">
         </activity>
         <activity
             android:name=".main.MainActivity"

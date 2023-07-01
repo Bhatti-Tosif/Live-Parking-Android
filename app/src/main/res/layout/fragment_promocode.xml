@@ -1,72 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.PromoCodeFragment">
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guide"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/left_guide"
-        app:layout_constraintGuide_begin="@dimen/_16dp"
-        android:orientation="vertical"/>
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_16dp" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guide"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/right_guide"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/_16dp"/>
+        app:layout_constraintGuide_end="@dimen/_16dp" />
 
     <TextView
+        android:id="@+id/tv_add_promo_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_add_promo_code"
-        android:text="@string/txt_add_promocode"
         android:layout_marginTop="@dimen/_20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/left_guide"/>
+        android:text="@string/txt_add_promocode"
+        app:layout_constraintStart_toStartOf="@+id/left_guide"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
+        android:id="@+id/et_promo_code"
         android:layout_width="@dimen/_0dp"
         android:layout_height="@dimen/_48dp"
-        android:id="@+id/et_promo_code"
         android:layout_marginTop="@dimen/_10dp"
         android:layout_marginEnd="@dimen/_10dp"
-        android:paddingStart="@dimen/_10dp"
-        android:background="@drawable/edit_text_simple_boarder"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintEnd_toStartOf="@id/btn_save"
-        app:layout_constraintTop_toBottomOf="@id/tv_add_promo_code"
-        android:hint="@string/hint_promocode_eg_tag50"
         android:autofillHints="Eg: TAG50"
+        android:background="@drawable/edit_text_simple_boarder"
+        android:hint="@string/hint_promocode_eg_tag50"
         android:inputType="text"
+        android:paddingStart="@dimen/_10dp"
+        app:layout_constraintEnd_toStartOf="@id/btn_save"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/tv_add_promo_code"
         tools:ignore="RtlSymmetry" />
 
     <Button
+        android:id="@+id/btn_save"
+        style="@style/ThemeOverlay.Material3.Button.TagB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btn_save"
-        android:text="@string/btn_save"
         android:backgroundTint="@color/deepAqua"
-        style="@style/ThemeOverlay.Material3.Button.TagB"
+        android:text="@string/btn_save"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/et_promo_code"
-        app:layout_constraintTop_toTopOf="@id/et_promo_code"
+        app:layout_constraintBottom_toBottomOf="@id/et_promo_code"
         app:layout_constraintEnd_toEndOf="@id/right_guide"
-        app:layout_constraintBottom_toBottomOf="@id/et_promo_code"/>
+        app:layout_constraintStart_toEndOf="@id/et_promo_code"
+        app:layout_constraintTop_toTopOf="@id/et_promo_code" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="@dimen/_0dp"
         android:layout_height="@dimen/_0dp"
-        android:id="@+id/rv_promo_code"
-        tools:listitem="@layout/item_promocode_list"
-        app:layout_constraintTop_toBottomOf="@id/et_promo_code"
-        app:layout_constraintStart_toStartOf="@id/left_guide"
-        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        android:id="@+id/shimmer_container"
+        android:layout_marginTop="@dimen/_40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="@dimen/_40dp"/>
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/et_promo_code">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/promocode_shimmer_effect"/>
+            <include layout="@layout/promocode_shimmer_effect"/>
+            <include layout="@layout/promocode_shimmer_effect"/>
+            <include layout="@layout/promocode_shimmer_effect"/>
+            <include layout="@layout/promocode_shimmer_effect"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_promo_code"
+        android:layout_width="@dimen/_0dp"
+        android:layout_height="@dimen/_0dp"
+        android:layout_marginTop="@dimen/_40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/right_guide"
+        app:layout_constraintStart_toStartOf="@id/left_guide"
+        app:layout_constraintTop_toBottomOf="@id/et_promo_code"
+        tools:listitem="@layout/item_promocode_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

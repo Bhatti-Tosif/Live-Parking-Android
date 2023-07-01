@@ -1,8 +1,12 @@
 package com.example.tegb_demo_app.baseClass
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -28,6 +32,16 @@ abstract class BaseActivity<Binding: ViewDataBinding, ViewModel: BaseViewModel>:
 
         }
         setUpView()
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val inputMethodManager =
+                this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
+            (currentFocus as? EditText)?.clearFocus()
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     abstract fun setViewModel(): ViewModel?

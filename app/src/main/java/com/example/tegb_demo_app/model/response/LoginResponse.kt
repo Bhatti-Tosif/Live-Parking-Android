@@ -1,13 +1,14 @@
 package com.example.tegb_demo_app.model.response
 
-import androidx.core.app.NotificationCompat.Action.SemanticAction
 import com.google.gson.annotations.SerializedName
 
 data class LoginResponse(
     @SerializedName("User")
-    val user : UserInfo?,
-    val refreshToken : String?,
-    val authToken : String?
+    val user : UserInfo,
+    @SerializedName("refreshToken")
+    val refreshToken : String,
+    @SerializedName("authToken")
+    val authToken : String
 )
 
 data class UserInfo(

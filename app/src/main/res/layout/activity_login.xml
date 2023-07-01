@@ -132,12 +132,18 @@
                     style="@style/TextInputEditTextStyle"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/btn_login"
                 style="@style/ThemeOverlay.Material3.Button.TagB"
                 android:layout_width="@dimen/_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_20dp"
+                android:textAllCaps="false"
+                app:initialCornerAngle="@dimen/_5dp"
+                app:spinning_bar_padding="@dimen/_3dp"
+                app:spinning_bar_width="3dp"
+                app:spinning_bar_color="@color/deepAqua"
+                android:background="@drawable/edit_text_white_boarder"
                 android:text="@string/btn_login_with_email"
                 app:layout_constraintEnd_toStartOf="@+id/right_guide"
                 app:layout_constraintStart_toStartOf="@id/left_guide"

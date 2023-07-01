@@ -1,6 +1,10 @@
 package com.example.tegb_demo_app.activity.authentication
 
+import android.annotation.SuppressLint
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
+import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModelProvider
 import com.example.tegb_demo_app.R
 import com.example.tegb_demo_app.baseClass.BaseActivity
@@ -9,12 +13,16 @@ import com.example.tegb_demo_app.viewModel.SignUpViewModel
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
 
+    private lateinit var handler: Handler
+
     override fun setViewModel(): SignUpViewModel = ViewModelProvider(this)[SignUpViewModel::class.java]
 
     override fun getResId(): Int = R.layout.activity_sign_up
 
     override fun setUpView() {
+
         binding.viewModel = viewModel
+        handler = Looper.myLooper()?.let { Handler(it) }!!
         observer()
         binding.btnSignUp.setOnClickListener {
             signUpRequest()
@@ -28,14 +36,25 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding, SignUpViewModel>() {
         viewModel.doSignUp()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun observer() {
 
+        viewModel.validationSignUp.observe(this) {
+            binding.btnSignUp.startAnimation()
+        }
         viewModel.userCreated.observe(this) {
             Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show()
-            launchActivity<LoginActivity>()
+            binding.btnSignUp.stopAnimation()
+            handler.postDelayed({
+                launchActivity<LoginActivity>()
+            }, 500)
         }
         viewModel.createUserFail.observe(this) {
-            Toast.makeText(this, "Not Created", Toast.LENGTH_SHORT).show()
+            binding.btnSignUp.doneLoadingAnimation(1, getDrawable(R.drawable.baseline_close_24)!!.toBitmap())
+            handler.postDelayed({
+                binding.btnSignUp.revertAnimation()
+            }, 500)
+            Toast.makeText(this, "${viewModel.createUserFail.value}", Toast.LENGTH_SHORT).show()
         }
         viewModel.firstNameEmpty.observe(this) {
             binding.etEnterFirstName.error = getString(R.string.first_name_require)

@@ -11,4 +11,9 @@
     <color name="ligh_green_gray">#D7EEEE</color>
     <color name="btn_selected_aqua">#065D60</color>
     <color name="edit_text_boarder_color">#66FFFFFF</color>
+    <color name="shimmer_placeholder">#dddddd</color>
+    <color name="iceBlue">#EBF9FF</color>
+    <color name="lightPrimaryColor">#D8EFEF</color>
+    <color name="gray_text">#808498</color>
+    <color name="gray_card">#F6F6F6</color>
 </resources>

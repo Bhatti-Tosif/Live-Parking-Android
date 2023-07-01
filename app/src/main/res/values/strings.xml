@@ -23,9 +23,9 @@
     <string name="btn_save">Save</string>
     <string name="hint_promocode_eg_tag50">Eg: TAG50</string>
     <string name="txt_heading">Heading</string>
-    <string name="tv_expiring_on">Expiring On</string>
-    <string name="tv_usage">Usage</string>
-    <string name="tv_discount">Discount</string>
+    <string name="tv_expiring_on">Expiring On: </string>
+    <string name="tv_usage">Usage: </string>
+    <string name="tv_discount">Discount: </string>
     <string name="btn_promocode">PromoCode</string>
     <string name="tv_tegb_demo_app_title">TegB Demo App</string>
     <string name="title_customer_login">Customer Login</string>
@@ -41,4 +41,9 @@
     <string name="mobileNumber_require">Mobile Number Required</string>
     <string name="password_require">Password Required</string>
     <string name="wrong_credential">Wrong Credential</string>
+    <string name="_2478">2478</string>
+    <string name="idstring">%d</string>
+    <string name="txt_work_in_progress">Work in Progress</string>
+    <string name="message">message</string>
+    <string name="nullResponse">null Response\n</string>
 </resources>

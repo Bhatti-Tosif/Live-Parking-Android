@@ -217,13 +217,19 @@
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/btn_signUp"
                 style="@style/ThemeOverlay.Material3.Button.TagB"
                 android:layout_width="@dimen/_0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_40dp"
                 android:text="@string/btn_create_an_account"
+                android:textAllCaps="false"
+                app:initialCornerAngle="@dimen/_5dp"
+                app:spinning_bar_padding="@dimen/_3dp"
+                app:spinning_bar_width="3dp"
+                app:spinning_bar_color="@color/deepAqua"
+                android:background="@drawable/edit_text_white_boarder"
                 app:layout_constraintEnd_toStartOf="@+id/right_guide"
                 app:layout_constraintStart_toStartOf="@id/left_guide"
                 app:layout_constraintTop_toBottomOf="@+id/txt_password" />

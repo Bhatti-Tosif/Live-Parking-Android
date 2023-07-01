@@ -1,6 +1,11 @@
 package com.example.tegb_demo_app.activity.authentication
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import androidx.core.graphics.drawable.toBitmap
 import androidx.lifecycle.ViewModelProvider
 import com.example.tegb_demo_app.R
 import com.example.tegb_demo_app.activity.dashBoard.DashBoardMainActivity
@@ -11,8 +16,11 @@ import com.example.tegb_demo_app.viewModel.AuthenticationViewModel
 import com.google.android.material.snackbar.Snackbar
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, AuthenticationViewModel>() {
+
+    private lateinit var handler: Handler
     override fun setUpView() {
         binding.viewModel = viewModel
+        handler = Handler(Looper.getMainLooper())
         binding.btnLogin.setOnClickListener {
             loginRequest()
         }
@@ -30,18 +38,30 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, AuthenticationViewModel
         viewModel.doLogin()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun observer() {
+
+        viewModel.loginValidation.observe(this) {
+            binding.btnLogin.startAnimation()
+        }
         viewModel.loginSuccess.observe(this) {
-            prefs.isUserLogin = true
-            prefs.userAuthKey = it?.authToken
-            prefs.refreshToken = it?.refreshToken
-            val intent = Intent(this, DashBoardMainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+            binding.btnLogin.doneLoadingAnimation(2, getDrawable(R.drawable.baseline_check_24)!!.toBitmap())
+            Log.d("Auth", prefs.authToken.toString())
+            handler.postDelayed({
+                val intent = Intent(this, DashBoardMainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+            }, 1000)
         }
 
         viewModel.loginFail.observe(this) {
-            Snackbar.make(binding.root, getString(R.string.wrong_credential), Snackbar.LENGTH_SHORT).show()
+
+            binding.btnLogin.doneLoadingAnimation(2, getDrawable(R.drawable.baseline_close_24)!!.toBitmap())
+            handler.postDelayed({
+                binding.btnLogin.revertAnimation()
+            }, 1500)
+            Snackbar.make(binding.root, it.toString(), Snackbar.LENGTH_SHORT).show()
+
         }
 
         viewModel.emailEmpty.observe(this) {

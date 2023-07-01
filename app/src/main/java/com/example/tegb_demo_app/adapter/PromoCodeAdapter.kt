@@ -1,5 +1,6 @@
 package com.example.tegb_demo_app.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -27,6 +28,7 @@ class PromoCodeAdapter: RecyclerView.Adapter<PromoCodeAdapter.PromoCodeViewHolde
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun submitList(newList: ArrayList<PromoCodeResponseModel>) {
         val diffUtil = PromoCodeDiffUtils(dataList, newList)
         val diffResult = DiffUtil.calculateDiff(diffUtil)
