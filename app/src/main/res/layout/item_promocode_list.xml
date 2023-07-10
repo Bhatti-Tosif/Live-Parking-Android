@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.tegb_demo_app.model.response.PromoCodeResponseModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10dp"
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginVertical="@dimen/_10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_heading"
+                tools:text="@string/txt_heading"
+                android:text="@{viewModel.couponCode}"
+                style="@style/TextStyle20sp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginStart="@dimen/_10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_expiring_on"
+                android:text="@string/tv_expiring_on"
+                style="@style/TextStyle16sp"
+                android:layout_marginTop="@dimen/_10dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_heading"
+                app:layout_constraintStart_toStartOf="@id/tv_heading" />
+
+            <TextView
+                android:id="@+id/tv_expiring_detail"
+                style="@style/TextStyle16spGray"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                android:text="@{viewModel.expiryDate.toString()}"
+                tools:text="@string/tv_expiring_on"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/tv_expiring_on"
+                app:layout_constraintTop_toTopOf="@+id/tv_expiring_on" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_discount"
+                android:text="@string/tv_discount"
+                style="@style/TextStyle16sp"
+                android:layout_marginTop="@dimen/_10dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_expiring_on"
+                app:layout_constraintStart_toStartOf="@id/tv_heading" />
+
+            <TextView
+                android:id="@+id/tv_discount_detail"
+                style="@style/TextStyle16spGray"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                tools:text="@string/tv_expiring_on"
+                android:text="@{viewModel.discountValue.toString()}"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/tv_discount"
+                app:layout_constraintTop_toTopOf="@+id/tv_discount" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_usage"
+                android:text="@string/tv_usage"
+                style="@style/TextStyle16sp"
+                android:layout_marginTop="@dimen/_10dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_discount"
+                app:layout_constraintStart_toStartOf="@id/tv_heading" />
+
+            <TextView
+                android:id="@+id/tv_usage_detail"
+                style="@style/TextStyle16spGray"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10dp"
+                tools:text="@string/tv_expiring_on"
+                android:text="@{viewModel.couponName}"
+                android:maxLines="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@+id/tv_usage"
+                app:layout_constraintTop_toTopOf="@+id/tv_usage" />
+
+            <Button
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_promo_code"
+                android:layout_marginTop="@dimen/_20dp"
+                style="@style/ThemeOverlay.Material3.Button.TagB"
+                android:backgroundTint="@color/ligh_green_gray"
+                android:textColor="@color/deepAqua"
+                android:text="@string/btn_promocode"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:layout_marginHorizontal="@dimen/_10dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_usage"
+                app:layout_constraintStart_toStartOf="@id/tv_heading"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

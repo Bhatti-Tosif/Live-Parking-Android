@@ -2,4 +2,18 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#00BCD4</color>
+    <color name="deepAqua">#077577</color>
+    <color name="tagBWhite">#FFFFFF</color>
+    <color name="selected_btn_color">#07A9AE</color>
+    <color name="googleRedColor">#D85439</color>
+    <color name="faceBookColor">#3B5999</color>
+    <color name="ligh_green_gray">#D7EEEE</color>
+    <color name="btn_selected_aqua">#065D60</color>
+    <color name="edit_text_boarder_color">#66FFFFFF</color>
+    <color name="shimmer_placeholder">#dddddd</color>
+    <color name="iceBlue">#EBF9FF</color>
+    <color name="lightPrimaryColor">#D8EFEF</color>
+    <color name="gray_text">#808498</color>
+    <color name="gray_card">#F6F6F6</color>
 </resources>
